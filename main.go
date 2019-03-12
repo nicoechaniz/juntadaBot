@@ -145,7 +145,7 @@ var messageOffset struct {
 	Offset int
 }
 
-var replacer = strings.NewReplacer("%", "%25", " ", "%20", "'", "%27", "+", "%2B", ".", "%2E", "/", "%2F", "#", "%23", "&", "%26", "*", "\\%2A", "_", "%5F", "`", "%60")
+var replacer = strings.NewReplacer("%", "%25", " ", "%20", "'", "%27", "+", "%2B", ".", "%2E", "/", "%2F", "#", "%23", "&", "%26", "*", "%2A", "_", "%5F", "`", "%60")
 var userReplacer = strings.NewReplacer("*", "%2A", "#", "%23", "&", "%26", " ", "%20")
 
 func clearAllEvents() {
