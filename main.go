@@ -3,12 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-
-	//"os"
-
-	//"time"
 	"io/ioutil"
-	//"strconv"
 	"encoding/json"
 	"regexp"
 	"strconv"
@@ -321,8 +316,6 @@ func createEvent(i int, event int) bool {
 	return true
 }
 
-//sendMessage?chat_id=176785082&text=Hello&reply_markup={"inline_keyboard":[[{"text":"Yest Test","callback_data":"yes"}]]}
-
 func pushEvent(event int) bool {
 	fmt.Println("Sending RSVP post")
 	fmt.Println(token + `sendMessage?chat_id=` + TelegramChatID + `&text=*RSVP Event ` + strconv.Itoa(event+1) + ` for ` + replacer.Replace(eventStruct[event].Title) + `*%0AHost:%20` + eventStruct[event].OwnerName + `  (@` + eventStruct[event].OwnerUN + `)%0ALocation: ` + replacer.Replace(eventStruct[event].Location) + `%0A*Date:*%20` + eventStruct[event].Date + `%0A%0A*Going:*%0A%0A*Not Going:*%0A%0ARSVP Below.&parse_mode=Markdown&reply_markup={"inline_keyboard":[[{"text":"✅","callback_data":"Go"},{"text":"✅ %2B1","callback_data":"%2B1"},{"text":"❌","callback_data":"No"}]]}`)
@@ -451,7 +444,6 @@ func closeEvent(i int, event int) bool {
 func clearAllResults() {
 	fmt.Println("-----CLEARING RESULTS-----")
 	Update.Result = nil
-	//Update.Result = append(Update.Result[:len(Update.Result)-1])
 	if len(Update.Result) == 0 {
 		fmt.Println("All Results Cleared")
 	}
